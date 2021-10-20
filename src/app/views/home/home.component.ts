@@ -61,4 +61,9 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  // Método é do tipo void, pois não retorna nada
+  deleteElement(position: number): void {
+    // Vai devolver todos os elementos onde a posição seja diferente da posição que estamos excluindo
+    this.dataSource = this.dataSource.filter(p => p.position !== position);
   }
+}
