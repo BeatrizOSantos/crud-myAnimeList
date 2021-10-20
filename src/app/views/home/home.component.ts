@@ -11,16 +11,16 @@ export interface MyAnimeList {
 }
 
 const OTAKU_DATA: MyAnimeList[] = [
-  {position: 1, name: 'Kimetsu no Yaiba', episodes: 26, currentEpisode: 3},
-  {position: 2, name: 'Bishoujo Senshi Sailor Moon Crystal', episodes: 26, currentEpisode: 4},
-  {position: 3, name: 'Attack on Titans', episodes: 25, currentEpisode: 3},
-  {position: 4, name: 'Katekeyo Hitman Reborn', episodes: 203, currentEpisode: 2},
-  {position: 5, name: 'xxxHOLIC', episodes: 24, currentEpisode: 1},
-  {position: 6, name: 'Shigatsu wa wa kimi No Uso', episodes: 22, currentEpisode: 5},
-  {position: 7, name: 'Code Geass', episodes: 25, currentEpisode: 6},
-  {position: 8, name: 'Gintama', episodes: 51, currentEpisode: 6},
-  {position: 9, name: 'Fruits Basket', episodes: 13, currentEpisode: 7},
-  {position: 10, name: 'Hunter x Hunter', episodes: 148, currentEpisode: 4},
+  { position: 1, name: 'Kimetsu no Yaiba', episodes: 26, currentEpisode: 3 },
+  { position: 2, name: 'Bishoujo Senshi Sailor Moon Crystal', episodes: 26, currentEpisode: 4 },
+  { position: 3, name: 'Attack on Titans', episodes: 25, currentEpisode: 3 },
+  { position: 4, name: 'Katekeyo Hitman Reborn', episodes: 203, currentEpisode: 2 },
+  { position: 5, name: 'xxxHOLIC', episodes: 24, currentEpisode: 1 },
+  { position: 6, name: 'Shigatsu wa wa kimi No Uso', episodes: 22, currentEpisode: 5 },
+  { position: 7, name: 'Code Geass', episodes: 25, currentEpisode: 6 },
+  { position: 8, name: 'Gintama', episodes: 51, currentEpisode: 6 },
+  { position: 9, name: 'Fruits Basket', episodes: 13, currentEpisode: 7 },
+  { position: 10, name: 'Hunter x Hunter', episodes: 148, currentEpisode: 4 },
 ];
 
 
@@ -51,13 +51,24 @@ export class HomeComponent implements OnInit {
         name: '',
         episodes: null,
         currentEpisode: null
-      } : element
+      } : {
+        position: element.position,
+        name: element.name,
+        episodes: element.episodes,
+        currentEpisode: element.currentEpisode
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result !== undefined) {
-        this.dataSource.push(result);
-        this.table.renderRows();
+      if (result !== undefined) {
+        // Map para devolver apenas as posições desse array e um include que verifica se o valor passado está dentro do novo array mapeado. Se estiver a gente vai pegar o nosso dataSource e na posição result.position(posição do resultado) - 1(como é um array), ele vai receber o novo result e após isso renderizar novamente a tabela
+        if (this.dataSource.map(p => p.position).includes(result.position)) {
+          this.dataSource[result.position - 1] = result;
+          this.table.renderRows();
+        } else {
+          this.dataSource.push(result);
+          this.table.renderRows();
+        }
       }
     });
   }
