@@ -66,4 +66,8 @@ export class HomeComponent implements OnInit {
     // Vai devolver todos os elementos onde a posição seja diferente da posição que estamos excluindo
     this.dataSource = this.dataSource.filter(p => p.position !== position);
   }
+
+  editElement(element: MyAnimeList): void {
+    this.openDialog(element);
+  }
 }
