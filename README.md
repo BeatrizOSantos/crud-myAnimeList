@@ -1,4 +1,9 @@
-# CrudAngular
+# CrudAngular-MyAnimeList
+
+My Anime List / Minha Lista de Animes
+
+Funcionalidades: Adicionar elementos, editar elementos e deletar elementos
+Functionalities: Add elements, edit elements and delete elements
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 
