@@ -1,3 +1,12 @@
 <mat-toolbar color='primary'>
+  <button mat-button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Anime</button>
+    <button mat-menu-item>Mangá</button>
+    <button mat-menu-item>Dorama</button>
+  </mat-menu>
   <span>Minha Lista de Animes</span>
 </mat-toolbar>

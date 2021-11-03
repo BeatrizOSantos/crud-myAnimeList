@@ -16,6 +16,9 @@ import { ElementDialogComponent } from './shared/element-dialog/element-dialog.c
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { ElementDialogMangaComponent } from './shared/element-dialog-manga/element-dialog-manga.component';
+import { HomeMangaComponent } from './views/home-manga/home-manga.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ElementDialogComponent
+    ElementDialogComponent,
+    ElementDialogMangaComponent,
+    HomeMangaComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
