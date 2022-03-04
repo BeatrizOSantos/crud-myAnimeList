@@ -1,6 +1,6 @@
 # CrudAngular-MyAnimeList
 
-My Anime List / Minha Lista de Animes
+## My Anime List / Minha Lista de Animes
 
 Funcionalidades: Adicionar elementos, editar elementos e deletar elementos;
 Functionalities: Add elements, edit elements and delete elements;
