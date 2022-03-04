@@ -1,0 +1,26 @@
+<!-- A variável isChange vai ser verificada: se for falsa vai entrar o método Adicionar, se não o Editar-->
+<h1 *ngIf="!isChange" mat-dialog-title>Adicionar Elemento</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Editar Elemento</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Posição</mat-label>
+    <input matInput [(ngModel)]="data.position">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Total de Episódios</mat-label>
+    <input matInput [(ngModel)]="data.episodes">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Último Episódio Visto</mat-label>
+    <input matInput [(ngModel)]="data.currentEpisode">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Adicionar</button>
+  <button mat-button *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial>Editar</button>
+</div>

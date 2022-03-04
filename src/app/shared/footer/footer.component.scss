@@ -1,0 +1,18 @@
+// .container {
+//   background-color: #3f51b5;
+//   padding: 20px 100px 20px 0;
+//   display: flex;
+//   flex-direction: row-reverse;
+//   margin: auto;
+//   bottom: 0;
+//   width: 100%;
+//   position: fixed;
+// }
+mat-toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copyright {
+  font-size: 10px;
+}
